@@ -10,9 +10,7 @@ end
 switch options
     case '2D'
         im_for_sens = squeeze(sum(im,3));
-        sens_map(:,:,1,:) = ismrm_estimate_csm_walsh_optimized_yt(im_for_sens,smooth);
-   
-        
+        sens_map(:,:,1,:) = ismrm_estimate_csm_walsh_optimized(im_for_sens,smooth);
         
 end
 

@@ -3,7 +3,7 @@ function [Cost_new,Cost,fNorm,tNorm,sNorm] = Cost_STCR(fUpdate, Image, sWeight, 
 N = numel(Image);
 
 fNorm = sum(abs(fUpdate(:)).^2);
-% Image = crop_half_FOV(Image);
+
 if tWeight ~= 0
     tNorm = mean(tWeight(:)) .* abs(diff(Image,1,3));
     tNorm = sum(tNorm(:));

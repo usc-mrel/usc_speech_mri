@@ -1,6 +1,5 @@
 # Speech MRI Open Dataset
 
-
 <figure class="video_container">
   <iframe src="https://player.vimeo.com/video/67169448?autoplay=1&loop=0&title=0&byline=0&portrait=0&mute=0" frameborder="0" allowfullscreen="false"> </iframe>
 </figure>
@@ -32,4 +31,5 @@ python3 demo_recon_csl1.py
 
 * **mfile** contains MATLAB reconstruction files
 * **cs_recon** contains Python reconstruction files
+* **post_processing** contains MATLAB files to re-create Figures 1 and 2 in Ref. [1]
 

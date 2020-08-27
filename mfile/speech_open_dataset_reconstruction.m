@@ -46,11 +46,11 @@ if isnumeric(para.Recon.time_frames)
     kSpace = kSpace(:, :, time_frames, :);
 end
 
-Data.N = NUFFT.init_new_2(kx*para.Recon.FOV, ky*para.Recon.FOV, 1, [4, 4], para.Recon.matrix_size(1)*para.Recon.FOV, para.Recon.matrix_size(1)*para.Recon.FOV);
+Data.N = NUFFT.init(kx*para.Recon.FOV, ky*para.Recon.FOV, 1, [4, 4], para.Recon.matrix_size(1)*para.Recon.FOV, para.Recon.matrix_size(1)*para.Recon.FOV);
 Data.N.W = w;
 
 Data.kSpace = kSpace;
-Data.first_est = NUFFT.NUFFT_adj_new_2(Data.kSpace, Data.N);
+Data.first_est = NUFFT.NUFFT_adj(Data.kSpace, Data.N);
 
 scale = max(abs(Data.first_est(:)));
 

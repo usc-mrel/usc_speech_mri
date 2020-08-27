@@ -48,7 +48,7 @@ for i=1:max_try
 %      fprintf(['Iter = ' num2str(i) '... '])
     
     new = old + step * update;
-    fidelity_new = compute_fidelity_for_line_search_yt(new, Data, para);
+    fidelity_new = compute_fidelity_for_line_search(new, Data, para);
 
     cost_new = Cost_STCR(fidelity_new,new,para.Recon.weight_sTV,para.Recon.weight_tTV);
 

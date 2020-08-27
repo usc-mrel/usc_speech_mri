@@ -130,21 +130,15 @@ if ifGPU
         end
     end
     
-%     gpuInfo = gpuDevice;
-%     gpuSize = gpuInfo.AvailableMemory;
-%     imSize  = numel(new_img_x)*8;
-%     if imSize*para.Recon.no_comp > gpuSize*0.3
-        %para.Recon.type = [para.Recon.type,' less memory'];
-%     end
 end
 
 % initialize Cost
 para.Cost = struct('fidelityNorm',[],'temporalNorm',[],'spatialNorm',[],'totalCost',[]);
 
 % initialize function handels 
-fidelity = @(im) compute_fidelity_yt_new(im,Data,para);
-spatial  = @(im) compute_sTV_yt(im,weight_sTV,beta_sqrd);
-temporal = @(im) compute_tTV_yt(im,weight_tTV,beta_sqrd);
+fidelity = @(im) compute_fidelity(im,Data,para);
+spatial  = @(im) compute_sTV(im,weight_sTV,beta_sqrd);
+temporal = @(im) compute_tTV(im,weight_tTV,beta_sqrd);
 
 fprintf(' Iteration       Cost       Step    Time(s) \n')
 for iter_no = 1:para.Recon.noi
@@ -176,9 +170,7 @@ for iter_no = 1:para.Recon.noi
     update_term_old = update_term; clear update_term
     
 %% line search    
-    
-    %fidelity_update = compute_fidelity_for_line_search_yt(new_img_x,Data,para);
-    
+
     para.Cost = Cost_STCR(fidelity_norm, new_img_x, weight_sTV, weight_tTV, para.Cost); clear fidelity_update
     step_size = line_search(new_img_x,update_term_old,Data,para);
     para.Recon.step_size(iter_no) = step_size;
@@ -195,7 +187,7 @@ for iter_no = 1:para.Recon.noi
 %% break when step size too small or cost not changing too much
 
     if para.Recon.break && iter_no > 1
-        if step_size < 1e-5 %|| abs(para.Cost.totalCost(end) - para.Cost.totalCost(end-1))/para.Cost.totalCost(end-1) < 1e-4
+        if step_size < 1e-5
             break
         end
     end
