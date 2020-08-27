@@ -1,9 +1,7 @@
 # Speech MRI Open Dataset
 
 
-<figure class="video_container">
-  <iframe src="https://player.vimeo.com/video/67169448?autoplay=1&loop=0&title=0&byline=0&portrait=0&mute=0" frameborder="0" allowfullscreen="false"> </iframe>
-</figure>
+(https://player.vimeo.com/video/67169448?autoplay=1&loop=0&title=0&byline=0&portrait=0&mute=0)
 
 This package contains code samples to load, reconstruct, and use the open raw MRI data set for Real-Time Speech MRI which is provided under the following link:\
  [LINK TO DATA]\
