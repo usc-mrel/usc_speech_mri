@@ -1,8 +1,6 @@
 # Speech MRI Open Dataset
 
-<figure class="video_container">
-  <iframe src="https://player.vimeo.com/video/67169448?autoplay=1&loop=0&title=0&byline=0&portrait=0&mute=0" frameborder="0" allowfullscreen="false"> </iframe>
-</figure>
+<iframe width="420" height="345" src="https://player.vimeo.com/video/67169448?autoplay=1&loop=0&title=0&byline=0&portrait=0"></iframe>
 
 This package contains code samples to load, reconstruct, and use the open raw MRI data set for Real-Time Speech MRI which is provided under the following link:\
  [LINK TO DATA]\
@@ -16,7 +14,7 @@ addpath /path/to/ismrmrd/matlab/
 run demo_recon_MATLAB.m
 ```
 ### Python
-```python
+```bash
 pip install -r requirements.txt
 python3 demo_recon_csl1.py
 ```
