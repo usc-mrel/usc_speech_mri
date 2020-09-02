@@ -11,12 +11,12 @@ Code is provided in Python and Maltab programming languages.
 ### Matlab
 ```matlab
 addpath /path/to/ismrmrd/matlab/
-run demo_recon_MATLAB.m
+run demo_recon_matlab.m
 ```
 ### Python
 ```bash
 pip install -r requirements.txt
-python3 demo_recon_csl1.py
+python3 demo_recon_python.py
 ```
 
 ## Citing
@@ -27,7 +27,7 @@ python3 demo_recon_csl1.py
 
 ## Structure
 
-* **mfile** contains MATLAB reconstruction files
-* **cs_recon** contains Python reconstruction files
-* **post_processing** contains MATLAB files to re-create Figures 1 and 2 in Ref. [1]
+* **matlab** contains MATLAB reconstruction files
+* **python** contains Python reconstruction files
+* **figures** contains MATLAB files to re-create Figures 1-5 in Ref. [1]
 
