@@ -6,44 +6,52 @@ data_dir = '../data/';
 output_dir = './figures/';
 mkdir(output_dir);
 
-img1 = h5read(fullfile(data_dir, 'sub035/recon/sub035_sc02_recon.h5'),'/recon');
-img2 = h5read(fullfile(data_dir, 'sub051/recon/sub051_sc02_recon.h5'),'/recon');
-img3 = h5read(fullfile(data_dir, 'sub058/recon/sub058_sc02_recon.h5'),'/recon');
+img1 = h5read(fullfile(data_dir, 'sub035/recon/sub035_2drt_11_postures_r1_recon.h5'),'/recon');
+img2 = h5read(fullfile(data_dir, 'sub035/recon/sub035_2drt_02_vcv2_r1_recon.h5'),'/recon');
+img3 = h5read(fullfile(data_dir, 'sub035/recon/sub035_2drt_04_bvt_r1_recon.h5'),'/recon');
+img4 = h5read(fullfile(data_dir, 'sub035/recon/sub035_2drt_06_rainbow_r1_recon.h5'),'/recon');
 
-%% Select sagittal frame index at /th/ in /uthu/ and vertical lines
-t1 = 309;
-t2 = 313;
-t3 = 377;
+%% Trim the first 100 frames of transient state
+img1(:,:,1:100) = [];
+img2(:,:,1:100) = [];
+img3(:,:,1:100) = [];
+img4(:,:,1:100) = [];
+
+%% Select the range of time 
+duration_in_sec = 20;
 x = 32;
+y_range = 17:65; 
+
+fr = 1000/(6.004*2); % frame rate
+n_frames = floor(fr*duration_in_sec); % number of frames
 
 %% Display Figure 3
-fig = figure('Color', 'k', 'Position',[0,0,1200,400]);
+fig = figure('Color', 'k', 'Position',[0,0,1200,800]);
 
-h1 = subplot(1,3,1); 
-imagesc(img1(:,:,t1));
-axis image off; 
-colormap gray
-hold on;
-plot([x,x], [17,65], 'LineWidth', 3, 'LineStyle', ':', 'Color', 'white')
-text(3, 5, 'a', 'FontSize', 38, 'VerticalAlignment', 'middle', 'HorizontalAlignment', 'left', 'Color', 'white');
+h1 = subplot(4,1,1); 
+imagesc(squeeze(img1(y_range, x, 1:n_frames)));
+axis off; 
+colormap gray;
 
-h2 = subplot(1,3,2); 
-imagesc(img2(:,:,t2));
-axis image off; 
-colormap gray
-hold on;
-text(3, 5, 'b', 'FontSize', 38, 'VerticalAlignment', 'middle', 'HorizontalAlignment', 'left', 'Color', 'white');
+h2 = subplot(4,1,2); 
+imagesc(squeeze(img2(y_range, x, 1:n_frames)));
+axis off; 
+colormap gray;
 
-h3 = subplot(1,3,3); 
-imagesc(img3(:,:,t3));
-axis image off; 
-colormap gray
-hold on;
-text(3, 5, 'c', 'FontSize', 38, 'VerticalAlignment', 'middle', 'HorizontalAlignment', 'left', 'Color', 'white');
+h3 = subplot(4,1,3); 
+imagesc(squeeze(img3(y_range, x, 1:n_frames)));
+axis off; 
+colormap gray;
 
-set(h1, 'Position', [0     0 0.333 1]); % [left bottom width height]
-set(h2, 'Position', [0.333  0 0.333 1]);
-set(h3, 'Position', [0.666  0 0.333 1]);
+h4 = subplot(4,1,4); 
+imagesc(squeeze(img4(y_range, x, 1:n_frames)));
+axis off; 
+colormap gray;
+
+set(h1, 'Position', [0 0.75 1 0.25]); % [left bottom width height]
+set(h2, 'Position', [0 0.50 1 0.25]);
+set(h3, 'Position', [0 0.25 1 0.25]);
+set(h4, 'Position', [0 0    1 0.25]);
 
 % save figure
 hgexport(fig, fullfile(output_dir, 'figure3.eps'));

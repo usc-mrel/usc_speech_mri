@@ -6,11 +6,11 @@ data_dir = '../data/';
 output_dir = './figures/';
 mkdir(output_dir);
 
-img1 = h5read(fullfile(data_dir, 'sub035/recon/sub035_sc05_recon.h5'),'/recon');
-img2 = h5read(fullfile(data_dir, 'sub041/recon/sub041_sc05_recon.h5'),'/recon');
+img1 = h5read(fullfile(data_dir, 'sub035/2drt/recon/sub035_2drt_05_shibboleth_r1_recon.h5'),'/recon');
+img2 = h5read(fullfile(data_dir, 'sub041/2drt/recon/sub041_2drt_05_shibboleth_r1_recon.h5'),'/recon');
 
-[audio1, Fs] = audioread(fullfile(data_dir, 'sub035/audio/sub035_sc05_audio.wav'));
-[audio2,  ~] = audioread(fullfile(data_dir, 'sub041/audio/sub041_sc05_audio.wav'));
+[audio1, Fs] = audioread(fullfile(data_dir, 'sub035/2drt/audio/sub035_2drt_05_shibboleth_r1_audio.wav'));
+[audio2,  ~] = audioread(fullfile(data_dir, 'sub041/2drt/audio/sub041_2drt_05_shibboleth_r1_audio.wav'));
 
 duration_in_sec1 = 5.6;
 duration_in_sec2 = 7.1;

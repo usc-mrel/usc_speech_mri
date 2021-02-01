@@ -1,57 +1,53 @@
+
 %% Clean state
 clear all; close all; clc;
 
-%% Read image
+%% Generate statistics
 data_dir = '../data/';
 output_dir = './figures/';
 mkdir(output_dir);
 
-img1 = h5read(fullfile(data_dir, 'sub035/recon/sub035_sc11_recon.h5'),'/recon');
-img2 = h5read(fullfile(data_dir, 'sub035/recon/sub035_sc02_recon.h5'),'/recon');
-img3 = h5read(fullfile(data_dir, 'sub035/recon/sub035_sc04_recon.h5'),'/recon');
-img4 = h5read(fullfile(data_dir, 'sub035/recon/sub035_sc06_recon.h5'),'/recon');
+all_file = dir(fullfile(data_dir, '*/2drt/recon/*.h5'));
+N = size(all_file, 1);
+j = 1;
 
-%% Trim the first 100 frames of transient state
-img1(:,:,1:100) = [];
-img2(:,:,1:100) = [];
-img3(:,:,1:100) = [];
-img4(:,:,1:100) = [];
+frame_rate = 1000/6.004/2; 
+for i = 1:N
+    stimuli = all_file(i).name(8:11);
 
-%% Select the range of time 
-duration_in_sec = 20;
-x = 32;
-y_range = 17:65; 
+    switch stimuli
+        case {'05'}
+            nw(j) = 58;
+        case {'06'}
+            nw(j) = 98;
+        case {'07'}
+            nw(j) = 70;
+        case {'08'}
+            nw(j) = 60;
+        case {'09'}
+            nw(j) = 44;
+        case {'10'}
+            nw(j) = 76;
+        otherwise
+            continue
+    end
+    
+    full_dir = fullfile(all_file(i).folder, all_file(i).name);
+    info = h5info(full_dir, '/recon');
+    
+    duration(j) = info.Dataspace.Size(3) / frame_rate;
+    j = j+1;
+end
 
-fr = 1000/(6.004*2); % frame rate
-n_frames = floor(fr*duration_in_sec); % number of frames
+save('statistics.mat', 'nw', 'duration');
 
 %% Display Figure 4
-fig = figure('Color', 'k', 'Position',[0,0,1200,800]);
 
-h1 = subplot(4,1,1); 
-imagesc(squeeze(img1(y_range, x, 1:n_frames)));
-axis off; 
-colormap gray;
-
-h2 = subplot(4,1,2); 
-imagesc(squeeze(img2(y_range, x, 1:n_frames)));
-axis off; 
-colormap gray;
-
-h3 = subplot(4,1,3); 
-imagesc(squeeze(img3(y_range, x, 1:n_frames)));
-axis off; 
-colormap gray;
-
-h4 = subplot(4,1,4); 
-imagesc(squeeze(img4(y_range, x, 1:n_frames)));
-axis off; 
-colormap gray;
-
-set(h1, 'Position', [0 0.75 1 0.25]); % [left bottom width height]
-set(h2, 'Position', [0 0.50 1 0.25]);
-set(h3, 'Position', [0 0.25 1 0.25]);
-set(h4, 'Position', [0 0    1 0.25]);
+f = figure;
+histogram(nw./(duration/60), [40:10:240]);
+ylabel 'Frequency'
+xlabel 'Words Per Minute'
+set(gca, 'FontSize', 20);
 
 % save figure
-hgexport(fig, fullfile(output_dir, 'figure4.eps'));
+hgexport(f, fullfile(output_dir, 'figure4.eps'));

@@ -7,7 +7,7 @@ addpath ./matlab/
 %% change the below for running a different data
 para.parent_dir = '../data/';
 para.dir.subj = 'sub015';
-para.dir.task = 'sc01';
+para.dir.task = '_2drt_01_vcv1_r1';
 para.dir.raw_file = fullfile(para.parent_dir, para.dir.subj, 'raw', sprintf('%s_%s_raw.h5', para.dir.subj, para.dir.task));
 para.dir.save_recon = fullfile(para.parent_dir, para.dir.subj, 'recon', sprintf('%s_%s_recon.h5', para.dir.subj, para.dir.task));
 

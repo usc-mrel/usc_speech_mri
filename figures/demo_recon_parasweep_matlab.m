@@ -6,9 +6,9 @@ addpath ./matlab/
 %% change the below for running a different dataset
 para.dir.data_dir = '../data/';
 para.dir.subj = 'sub015';
-para.dir.filename = 'sub015_sc01_raw.h5';
+para.dir.filename = 'sub015_2drt_01_vcv1_r1_raw.h5';
 para.dir.output_dir = fullfile(para.dir.data_dir, para.dir.subj, 'figures');
-para.dir.raw_file = fullfile(para.dir.data_dir, para.dir.subj, 'raw', para.dir.filename);
+para.dir.raw_file = fullfile(para.dir.data_dir, para.dir.subj, '2drt', 'raw', para.dir.filename);
 
 mkdir (para.dir.output_dir)
 %% set parameters
