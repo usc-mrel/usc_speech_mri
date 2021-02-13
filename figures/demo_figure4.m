@@ -3,7 +3,7 @@
 clear all; close all; clc;
 
 %% Generate statistics
-data_dir = '../data/';
+data_dir = '../dataset/';
 output_dir = './figures/';
 mkdir(output_dir);
 
