@@ -7,8 +7,8 @@ output_dir = './figures/';
 mkdir(output_dir);
 
 img1 = h5read(fullfile(data_dir, 'sub035/2drt/recon/sub035_2drt_02_vcv2_r1_recon.h5'),'/recon');
-img2 = h5read(fullfile(data_dir, 'sub051/2drt/recon/sub051_02_vcv2_r1_recon.h5'),'/recon');
-img3 = h5read(fullfile(data_dir, 'sub058/2drt/recon/sub058_02_vcv2_r1_recon.h5'),'/recon');
+img2 = h5read(fullfile(data_dir, 'sub051/2drt/recon/sub051_2drt_02_vcv2_r1_recon.h5'),'/recon');
+img3 = h5read(fullfile(data_dir, 'sub058/2drt/recon/sub058_2drt_02_vcv2_r1_recon.h5'),'/recon');
 
 %% Select sagittal frame index at /th/ in /uthu/ and vertical lines
 t1 = 309;
