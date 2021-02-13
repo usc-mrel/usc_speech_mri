@@ -7,7 +7,7 @@ The dataset is publicly available in *figshare*: [Link](https://doi.org/10.6084/
  
 Code is provided in Python and Maltab programming languages.
 
-Please also find useful links for papers and tools relevant to the dataset: [Link](https://github.com/yongwanlim/links_rtmri_tools)
+Please also find useful links for papers and tools relevant to the dataset: [Link](https://github.com/yongwanlim/links_speech_rtmri_tools)
 
 ## Example Usage
 
