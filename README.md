@@ -1,9 +1,11 @@
 # Speech MRI Open Dataset
 
-<iframe width="420" height="345" src="https://player.vimeo.com/video/67169448?autoplay=1&loop=0&title=0&byline=0&portrait=0"></iframe>
+This package contains code samples to load, reconstruct, and use the open raw MRI data set for the following paper:\
+*Y Lim et al. A multispeaker dataset of raw and reconstructedspeech production real-time MRI video and 3D volumetric images, Submitted to Nature Scientific Data* 
 
-This package contains code samples to load, reconstruct, and use the open raw MRI data set for Real-Time Speech MRI which is provided under the following link:\
- https://doi.org/10.6084/m9.figshare.13725546.v1 \
+The dataset is available in *figshare* under the following link:\
+ https://doi.org/10.6084/m9.figshare.13725546.v1 \ and 
+ 
 Code is provided in Python and Maltab programming languages.
 
 ## Example Usage
@@ -26,8 +28,7 @@ To be updated
 https://doi.org/10.6084/m9.figshare.13725546.v1
 
 ## Structure
-
 * **matlab** contains MATLAB reconstruction files
 * **python** contains Python reconstruction files
-* **figures** contains MATLAB files to re-create Figures 1-5 in Ref. [1]
+* **figures** contains MATLAB files to re-create Figures 1-5 in Reference paper [to be updated]
 
