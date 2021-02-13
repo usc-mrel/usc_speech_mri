@@ -2,7 +2,7 @@
 clear all; close all; clc;
 
 %% Read image and audio
-data_dir = '../data/';
+data_dir = '../dataset/';
 output_dir = './figures/';
 mkdir(output_dir);
 
