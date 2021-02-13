@@ -4,7 +4,7 @@
 clear all; close all; clc;
 
 %% Read image
-data_dir = '../data/sub015/figures';
+data_dir = '../dataset/sub015/figures';
 output_dir = './figures/';
 mkdir(output_dir);
 
