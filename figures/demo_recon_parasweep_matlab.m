@@ -4,7 +4,7 @@ clear all; close all; clc;
 addpath ../ismrmrd/matlab/
 addpath ./matlab/
 %% change the below for running a different dataset
-para.dir.data_dir = '../data/';
+para.dir.data_dir = '../dataset/';
 para.dir.subj = 'sub015';
 para.dir.filename = 'sub015_2drt_01_vcv1_r1_raw.h5';
 para.dir.output_dir = fullfile(para.dir.data_dir, para.dir.subj, 'figures');
