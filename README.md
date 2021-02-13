@@ -30,5 +30,5 @@ https://doi.org/10.6084/m9.figshare.13725546.v1
 ## Structure
 * **matlab** contains MATLAB reconstruction files
 * **python** contains Python reconstruction files
-* **figures** contains MATLAB files to re-create Figures 1-5 in Reference paper [to be updated]
+* **figures** contains MATLAB files to re-create Figures 2-6 in reference paper [to be updated]
 
