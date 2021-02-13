@@ -1,6 +1,6 @@
 clear; clc; close all;
 
-all_recon_file = dir('/server/sdata_new/Speech/*/*/2drt/img_h5/*.h5');
+all_recon_file = dir('./dataset/*/*/2drt/recon/*.h5');
 
 
 N = length(all_recon_file);
