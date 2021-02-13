@@ -214,7 +214,6 @@ with device:
 #
     
     reg_lambda_scaled = reg_lambda * xp.max(xp.abs(zero_filed_img))
-#    img, fnorm, tnorm, cost = TotalVariationRecon_NLCG(kdata, kweight, kloc, sens_map, reg_lambda_scaled, max_iter)
     if opt.methods == "nlcg": # non-linear conjugate gradient
         img, fnorm, tnorm, cost = TotalVariationReconNLCG(kdata, kweight, kloc, sens_map, reg_lambda_scaled, max_iter).run()
     elif opt.methods == "pdhg": # primal dual hybrid gradient
