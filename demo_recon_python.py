@@ -2,7 +2,7 @@
 Python implementation for parallel imaging and compressed sensing MRI image reconstruction with temporal finite difference constraint
 
 Use example
-python demo_recon_csl1.py --path_to_data data/ --filename lac01132019_19_28_53.h5 --n_arms 2 --n_recon_frames 0 --reg_lambda 0.08 --max_iter 100 --cuda --gpu_id 0
+python demo_recon_csl1.py --path_to_data data/ --filename sub001/2drt/raw/sub001_2drt_vcv1_r1_raw.h5 --n_arms 2 --n_recon_frames 0 --reg_lambda 0.08 --max_iter 100 --cuda --gpu_id 0
 
 Implemented by Yongwan Lim (yongwanl@usc.edu) Feb. 2020
 """
@@ -21,8 +21,8 @@ import h5py
 
 parser = argparse.ArgumentParser(description='Python PICS with temporal FD constrained reconstruction')
 
-parser.add_argument('--path_to_data', type=str, default='data/', help='path to data')
-parser.add_argument('--filename', type=str, default='lac01132019_19_28_53.h5', help='filename')
+parser.add_argument('--path_to_data', type=str, default='dataset/', help='path to data')
+parser.add_argument('--filename', type=str, default='sub001/2drt/raw/sub001_2drt_vcv1_r1_raw.h5', help='filename')
 
 parser.add_argument('--n_arms', type=int, default=2, help='Number of spiral arms to use to reconstruct per frame')
 parser.add_argument('--n_recon_frames', type=int, default=50,
@@ -43,12 +43,6 @@ opt = parser.parse_args()
 import time
 
 start = time.time()
-
-# path_to_data = 'data/'
-# filename = 'lac01132019_19_28_53'
-
-# NIH test data set:
-# curl -L -o ismrmrd_data.zip https://zenodo.org/record/33166/files/ismrmrd_data.zip
 
 # path_to_data = 'ismrmrd_data/Spiral/'
 # filename = 'spiral'
