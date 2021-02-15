@@ -2,7 +2,7 @@
 Python implementation for parallel imaging and compressed sensing MRI image reconstruction with temporal finite difference constraint
 
 Use example
-python demo_recon_csl1.py --path_to_data data/ --filename sub001/2drt/raw/sub001_2drt_vcv1_r1_raw.h5 --n_arms 2 --n_recon_frames 0 --reg_lambda 0.08 --max_iter 100 --cuda --gpu_id 0
+python demo_recon_python.py --path_to_data data/ --filename sub001/2drt/raw/sub001_2drt_vcv1_r1_raw.h5 --n_arms 2 --n_recon_frames 0 --reg_lambda 0.08 --max_iter 100 --cuda --gpu_id 0
 
 Implemented by Yongwan Lim (yongwanl@usc.edu) Feb. 2020
 """
