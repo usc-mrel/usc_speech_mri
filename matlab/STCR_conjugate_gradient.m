@@ -4,16 +4,16 @@ function [Image,para] = STCR_conjugate_gradient(Data,para)
 %--------------------------------------------------------------------------
 %   Solve MRI reconstruction problem using a conjugate gradient method.
 %--------------------------------------------------------------------------
-%   Inputs (for a 2D dynamic radial case):
+%   Inputs (for a 2D dynamic spiral case):
 %       - Data                      [structure] 
-%           Data.kSpace             [sx, nor, nof, nc]
+%           Data.kSpace             [sx, nos, nof, nc]
 %           Data.sens_map           [1,  1,   1,   nc]
 %           Data.first_est          [sx, sy,  nof]
 %           Data.N                  [NUFFT structure]
 %
-%               'sx'    number of readout point along a ray
-%               'sy'    for radial k-space, same as sx
-%               'nor'   number of rays per time frame
+%               'sx'    number of readout point along a spiral inteleave 
+%               'sy'    for spiral k-space, same as sx
+%               'nos'   number of spirals per time frame
 %               'nof'   number of time frames
 %               'nc'    number of coils
 %           
@@ -44,7 +44,7 @@ function [Image,para] = STCR_conjugate_gradient(Data,para)
 %           para.Recon.step_size    initial CG update step size
 %           para.Recon.noi          number of iterations
 %           para.Recon.type         reconstruction type see 
-%                                   'compute_fidelity_ye_new'
+%                                   'compute_fidelity'
 %--------------------------------------------------------------------------
 %   Output:
 %       - Image     [sx, sy, nof, ...]
