@@ -24,7 +24,7 @@ run demo_recon_matlab.m
 ### Python
 ```bash
 pip install -r requirements.txt
-python3 demo_recon_python.py
+python demo_recon_python.py
 ```
 
 ## Citing
