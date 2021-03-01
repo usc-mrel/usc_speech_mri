@@ -1,6 +1,6 @@
 # Speech MRI Open Dataset
 <p align="center"> 
-<img src="https://github.com/yongwanlim/yongwanlim.github.io/blob/master/assets/img/75subj.png" />
+<img src="https://raw.githubusercontent.com/yongwanlim/yongwanlim.github.io/master/assets/img/75subj.png" />
 </p>
 
 This package contains code samples to load, reconstruct, and use the open raw MRI data set for the following paper:\
