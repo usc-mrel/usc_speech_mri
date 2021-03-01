@@ -1,4 +1,7 @@
 # Speech MRI Open Dataset
+<p align="center"> 
+<img src="https://github.com/yongwanlim/yongwanlim.github.io/blob/master/assets/img/75subj.png" />
+</p>
 
 This package contains code samples to load, reconstruct, and use the open raw MRI data set for the following paper:\
 Y Lim, A Toutios, et al. A multispeaker dataset of raw and reconstructedspeech production real-time MRI video and 3D volumetric images, *submitted to Nature Scientific Data* 
