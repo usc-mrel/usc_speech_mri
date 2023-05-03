@@ -14,9 +14,9 @@ import ismrmrd.xsd
 # import numpy as np
 # import cupy as cp
 import sigpy as sp
-from cs_recon.plot_mri import img_play
-from cs_recon.recon import TotalVariationRecon, TotalVariationReconNLCG
-from cs_recon.util import estimate_coilmap_walsh
+from cs_recon_python.plot_mri import img_play
+from cs_recon_python.recon import TotalVariationRecon, TotalVariationReconNLCG
+from cs_recon_python.util import estimate_coilmap_walsh
 import h5py
 
 parser = argparse.ArgumentParser(description='Python PICS with temporal FD constrained reconstruction')
@@ -84,7 +84,7 @@ with device:
 
     header = ismrmrd.xsd.CreateFromDocument(dset.read_xml_header())
     enc = header.encoding[0]
-    
+
     acq_header = dset.read_acquisition(0).getHead()
     nk = acq_header.number_of_samples                               # number of samples per spiral
     nc = header.acquisitionSystemInformation.receiverChannels       # number of coils
@@ -212,7 +212,7 @@ with device:
 ################################################################################
 # CS Reconstruction
 #
-    
+
     reg_lambda_scaled = reg_lambda * xp.max(xp.abs(zero_filed_img))
     if opt.methods == "nlcg": # non-linear conjugate gradient
         img, fnorm, tnorm, cost = TotalVariationReconNLCG(kdata, kweight, kloc, sens_map, reg_lambda_scaled, max_iter).run()
